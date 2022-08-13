@@ -51,7 +51,6 @@ exports.register = async (req, res) => {
 
     const tempName = first_name + last_name;
     const newUsername = await validateUsername(tempName);
-    console.log(newUsername);
 
     const check = await User.findOne({ email });
     if (check) {
@@ -140,7 +139,6 @@ exports.login = async (req, res) => {
       picture: user.picture,
       token: token,
       verified: user.verified,
-      message: "Register success! Please verify your email to start",
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
