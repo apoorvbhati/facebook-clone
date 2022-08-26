@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 exports.authUser = async (req, res, next) => {
   try {
-    const tmp = req.header("Authorization");
+    let tmp = req.header("Authorization");
     const token = tmp ? tmp.slice(7, tmp.length) : "";
     if (!token) {
       return res.status(400).json({ message: "Invalid Authentification" });

@@ -7,7 +7,7 @@ export const uploadImages = async (formData, path, token) => {
       formData,
       {
         headers: {
-          Auhorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           "content-type": "multipart/form-data",
         },
       }

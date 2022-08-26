@@ -238,3 +238,14 @@ exports.changePassword = async (req, res) => {
   await User.findOneAndUpdate({ email }, { password: cryptedPassword });
   return res.status(200).json({ message: "Ok" });
 };
+
+// Get the profile of the user
+exports.getProfile = async (req, res) => {
+  try {
+    const { username } = req.params; // the username is sent in the url from the frontend
+    const profile = await User.find({ username }).select("-password");
+    res.json(profile);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
