@@ -14,6 +14,9 @@ export function userReducer(
     case "VERIFY":
       return { ...state, verified: action.payload };
 
+    case "UPDATEPICTURE":
+      return { ...state, picture: action.payload };
+
     default:
       return state;
   }

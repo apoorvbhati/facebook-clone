@@ -2,7 +2,7 @@ header {
   position: fixed;
   top: 0;
   height: 56px;
-  z-index: 99;
+  z-index: 9999999999999;
   background: var(--bg-primary);
   width: 100%;
   box-shadow: 1px 8px 15px -7px var(--shadow-2);
@@ -10,9 +10,7 @@ header {
   grid-template-columns: repeat(3, 1fr);
   color: var(--color-primary);
 }
-
 /*---Header left-----*/
-
 .header_left {
   display: flex;
   align-items: center;
@@ -31,7 +29,7 @@ header {
 .search {
   display: flex;
   align-items: center;
-  gap: 0px;
+  gap: 8px;
   background: var(--bg-forth);
   padding: 10px 32px 10px 10px;
   border-radius: 50px;
@@ -43,12 +41,10 @@ header {
   background: transparent;
   font-size: 15px;
   font-family: inherit;
-  padding-left: 10px;
 }
 .search input::placeholder {
   transform: translateY(-1px);
 }
-
 /*---Header left-----*/
 
 /*---Header middle-----*/
@@ -101,7 +97,6 @@ header {
   font-size: 13px;
   color: #fff;
 }
-
 /*---Header middle-----*/
 
 /*---Header right-----*/
@@ -118,7 +113,7 @@ header {
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  padding-inline-start: 3px 10px 3px 6px;
+  padding: 3px 10px 3px 6px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 14px;
@@ -147,7 +142,7 @@ header {
   background: var(--bg-third);
   cursor: pointer;
 }
-.right-notification {
+.right_notification {
   position: absolute;
   top: -6px;
   right: -5px;
@@ -157,11 +152,9 @@ header {
   font-size: 13px;
   color: #fff;
 }
-
 /*---Header right-----*/
 
 /*---Search menu-----*/
-
 .search_area {
   position: absolute;
   align-items: flex-start;
@@ -221,9 +214,7 @@ header {
 }
 
 /*---Search menu-----*/
-
 /*---Search All Menu-----*/
-
 .all_menu {
   position: absolute;
   right: -9rem;
@@ -352,7 +343,6 @@ header {
   justify-content: center;
   background: var(--bg-third);
 }
-
 /*---Search All Menu-----*/
 
 /*-------User menu----*/
@@ -477,7 +467,6 @@ header {
 /*-------User menu----*/
 
 /*---responsive----------*/
-
 @media (max-width: 1295px) {
   .middle_icon {
     width: 90px;
@@ -571,22 +560,27 @@ header {
     display: none;
   }
   .mmenu {
-    width: 340px;
+    width: 290px;
   }
   .all_menu {
-    left: -12.5rem;
+    width: 310px;
+    left: -10rem;
+  }
+  .search_area {
+    width: 310px;
   }
 }
-
 /*---responsive----------*/
 
-/*---Active header-------*/
-
+/*----Active header----*/
 .active_header {
   background: var(--light-blue-color);
 }
 .active_header svg {
   fill: var(--blue-color);
 }
-
-/*---Active header-------*/
+.active_link {
+  background: var(--light-blue-color);
+  color: var(--blue-color);
+}
+/*----Active header----*/

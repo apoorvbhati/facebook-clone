@@ -23,8 +23,7 @@ exports.uploadImages = async (req, res) => {
 };
 
 exports.listImages = async (req, res) => {
-  const { path, sort, max } = req.body;
-
+  const { path, sort, max } = req.body; // Images are get by the path and the path has the username so images are get by the user
   cloudinary.v2.search
     .expression(`${path}`)
     .sort_by("created_at", `${sort}`)
@@ -34,7 +33,7 @@ exports.listImages = async (req, res) => {
       res.json(result);
     })
     .catch((err) => {
-      console.log(err.error.message);
+      console.log("image error");
     });
 };
 

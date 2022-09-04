@@ -165,9 +165,33 @@
     width: 20px;
   }
 }
-
-/*-----Activate Group-------*/
-
+@media (max-width: 400px) {
+  .createPost,
+  .post {
+    margin-top: 1rem;
+  }
+  .home_middle,
+  .createPost,
+  .post {
+    width: 98%;
+    margin: 1rem auto;
+  }
+  .send_verification {
+    width: 98%;
+    margin: 0 auto;
+  }
+  .stories {
+    grid-template-columns: repeat(6, 13vw);
+    padding-left: 10px;
+  }
+  .home_middle {
+    margin: 56px auto;
+  }
+  .createPost_body {
+    padding: 5px 0;
+  }
+}
+/*-----Activate popup----*/
 .popup {
   position: relative;
   background: var(--bg-primary);
@@ -194,5 +218,4 @@
   padding: 15px;
   font-weight: 500;
 }
-
-/*-----Activate Group-------*/
+/*-----Activate popup----*/

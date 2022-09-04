@@ -6,35 +6,22 @@ import Profile from "./pages/profile";
 import Home from "./pages/home";
 import LoggedInRoutes from "./routes/LoggedInRoutes";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
+import { postsReducer } from "./functions/reducers";
 import Activate from "./pages/home/activate";
 import Reset from "./pages/reset";
 import CreatePostPopup from "./components/createPostPopup";
 import axios from "axios";
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "POSTS_REQUESTS":
-      return { ...state, loading: true, error: "" };
-    case "POSTS_SUCCESS":
-      return { ...state, loading: false, posts: action.payload, error: "" };
-    case "POSTS_ERROR":
-      return { ...state, loading: false, error: action.payload };
-    default:
-      return state;
-  }
-}
-
 function App() {
   const { user } = useSelector((state) => ({ ...state }));
   const [visible, setVisible] = useState(false);
-  const [{ loading, error, posts }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, posts }, dispatch] = useReducer(postsReducer, {
     loading: false,
     posts: [],
     error: "",
   });
 
   useEffect(() => {
-    console.log("effect runs");
     getAllPosts();
   }, []);
 
@@ -49,7 +36,6 @@ function App() {
           },
         }
       );
-      console.log(data);
       dispatch({
         type: "POSTS_SUCCESS",
         payload: data,
@@ -67,13 +53,22 @@ function App() {
       {visible && <CreatePostPopup user={user} setVisible={setVisible} />}
       <Routes>
         <Route element={<LoggedInRoutes />}>
-          <Route path="/profile" element={<Profile />} exact />
+          <Route
+            path="/profile"
+            element={<Profile setVisible={setVisible} />}
+            exact
+          />
+          <Route
+            path="/profile/:username"
+            element={<Profile setVisible={setVisible} />}
+            exact
+          />
           <Route
             path="/"
             element={<Home setVisible={setVisible} posts={posts} />}
             exact
           />
-          <Route path="/activate/:token" element={<Activate />} />
+          <Route path="/activate/:token" element={<Activate />} exact />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login />} exact />
