@@ -21,7 +21,6 @@ export default function Profile({ setVisible }) {
   const { user } = useSelector((state) => ({ ...state }));
   const [photos, setPhotos] = useState({});
   var userName = username === undefined ? user.username : username;
-  console.log(userName);
   const [{ loading, error, profile }, dispatch] = useReducer(profileReducer, {
     loading: false,
     profile: {},
@@ -82,8 +81,6 @@ export default function Profile({ setVisible }) {
       });
     }
   };
-
-  console.log(profile);
 
   return (
     <div className="profile">
