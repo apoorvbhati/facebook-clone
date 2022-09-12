@@ -138,7 +138,7 @@ const userSchema = mongoose.Schema(
         },
         savedAt: {
           type: Date,
-          default: new Date(),
+          required: true,
         },
       },
     ],
